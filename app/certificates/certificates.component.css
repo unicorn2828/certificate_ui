@@ -1,0 +1,220 @@
+a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 2px 2px 2px 2px;
+  color: #cccccc;
+}
+
+h3:hover {
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+h4 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 2px 2px 2px 2px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 100%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#certificatesFormContent {
+  border: 5px solid darkslategray;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 100px 100px;
+  width: 200px;
+  max-width: 200px;
+  height: 200px;
+  max-height: 200px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: inline-block;
+  margin: 20px 20px 20px 20px;
+  color: black;
+}
+
+#certificatesFormContent:hover {
+  background: darkslategray;
+  color: white;
+  border: 5px solid white;
+
+  -moz-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+  transition: all 0.1s ease-in-out;
+}
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.order {
+  width: 20%;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover2:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 4px;
+  background-color: white;
+  content: "";
+  transition: width 0.1s;
+  color: black;
+}
+
+.underlineHover2:hover {
+  color: black;
+}
+
+.underlineHover2:after {
+  width: 100%;
+}
+
+.b {
+  font-size: 8px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  margin: 0px 0px 0px 0px;
+  font-size: 70%;
+}
+
+.t {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 0px 0px 0px 0px;
+
+}
+
+.t:hover {
+  transform: scale(1.5);
+  transition: all 0.2s ease-in-out;
+}
+
+/* OTHERS */
+
+*:focus {
+  outline: none;
+}
+
+#giftIcon {
+  width: 25%;
+  margin: 15px 5px 5px 5px;
+}
+
+#giftIcon:hover {
+  transform:  rotate(360deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#cartIcon {
+  width: 30%;
+  margin: 5px 5px 5px 5px;
+}
+
+#cartIcon:hover {
+  transform: rotate(360deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#booking {
+  background-color: darkslategray;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: white 2px;
+  margin: 1px;
+  border-style: solid;
+  border-color: white;
+}
+#booking:hover {
+  background-color: cadetblue;
+  transition: all 0.2s ease-in-out;
+  border-style: solid;
+  border-color: white;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: cornflowerblue;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+

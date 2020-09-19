@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="wrapper fadeInUp">
+  <div id="loginFormContent">
+    <p></p>
+    <h3> Sign Up </h3>
+    <div class='inactive underlineHover2'>
+      <img src="assets/pahonia.png" id="loginIcon" alt="Avatar Icon"/>
+    </div>
+    <form method="post" id="loginData" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="text" class="fadeIn second" formControlName="login" placeholder="login">
+      <input type="text" class="fadeIn third" formControlName="password" placeholder="password">
+      <input type="text" class="fadeIn second" formControlName="confirmPassword" placeholder="confirm password">
+      <input type="text" class="fadeIn third" formControlName="email" placeholder="email">
+      <input type="submit" class="fadeIn fourth" value="SUBMIT">
+      <input type="button" class="fadeIn fourth" (click) = "resetForm()" value="RESET">
+    </form>
+    <input onclick='history.back()' type="submit" class="fadeIn fifth" value="BACK">
+  </div>
+</div>

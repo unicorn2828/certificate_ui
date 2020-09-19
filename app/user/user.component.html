@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class='certificatesPage'>
+  <br><br>
+  <div class='details'>
+    <div class='wrapper fadeInUp'>
+      <div id='formContent2'>
+        <p></p>
+        <div class='inactive underlineHover2'>
+          <h3>User Shopping cart</h3>
+          <p></p>
+        </div>
+        <div id="title">
+          <h3 >{{user}} Certificates:</h3>
+        </div>
+        <p></p>
+        <div id='certificateDetailedDescription'>
+          <div id="certificatesFormContent" *ngFor="let certificate of certificates">
+            <div class='b'> Certificate Name</div>
+            <div class='t'>{{certificate.certificateName}}</div>
+            <div class='b'> Price</div>
+            <div class='t'>${{certificate.price}}</div>
+            <div class='b'> Duration</div>
+            <div class='t'>days {{certificate.duration}}</div>
+            <input type="button" id="delete" (click)="delete(certificate.id)" value="DELETE">
+          </div>
+          <p></p>
+        </div>
+        <input onclick='history.back()' type='submit' class='fadeIn fifth' value='BACK'>
+        <input type="button" class="fadeIn fourth" (click)="confirm()" value="CONFIRM">
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>

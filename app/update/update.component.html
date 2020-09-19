@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="wrapper fadeInUp">
+  <div id="loginFormContent">
+    <p></p>
+    <h3> Certificate Update </h3>
+    <form method="post" id="loginData" [formGroup]="updateForm" (ngSubmit)="updateCertificate()">
+      <div>
+        <div class="text">certificate name</div>
+      </div>
+      <input type="text" class="fadeIn second" formControlName="certificateName" placeholder="certificate name">
+      <div>
+        <div class="text">description</div>
+      </div>
+      <input type="text" class="fadeIn third" formControlName="description" placeholder="description">
+      <div>
+        <div class="text">creation date</div>
+      </div>
+      <input type="text" class="fadeIn second" formControlName="creationDate" placeholder="creation date">
+      <div>
+        <div class="text">price</div>
+      </div>
+      <input type="text" class="fadeIn third" formControlName="price" placeholder="price">
+      <div>
+        <div class="text">duration</div>
+      </div>
+      <input type="text" class="fadeIn third" formControlName="duration" placeholder="duration">
+      <input type="submit" class="fadeIn fourth" (click)="updateCertificate()" value="UPDATE">
+      <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
+    </form>
+    <input onclick='history.back()' type="submit" class="fadeIn fifth" value="BACK">
+  </div>
+</div>
