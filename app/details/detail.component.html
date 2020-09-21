@@ -31,7 +31,7 @@
           </div>
         </div>
         <p></p>
-        <a *ngIf="user !== undefined" href='#'>
+        <a *ngIf="user !== undefined"  (click)="certificatesComponent.putInCart(certificate.id)" href='#'>
           <div>Add to Cart</div>
           <img src='assets/cart.svg' id='cartIcon' alt='Cart Icon'/>
         </a>

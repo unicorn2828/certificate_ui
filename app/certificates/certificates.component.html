@@ -1,12 +1,20 @@
-<app-navbar></app-navbar>
+<app-navbar [userCartLength] = "userCartLength"></app-navbar>
 <div class="wrapper fadeInUp">
+  <div id="error"></div>
   <div id="formContent" [formGroup]="certificatesForm">
-    <mat-paginator [length]=200
+    <mat-paginator [length]="length"
                    [pageSize]="pageSize"
                    [pageSizeOptions]="[5, 10, 25, 50]"
                    (page)="getPaginatorData($event)">
     </mat-paginator>
-    <input type="text" #certificateName (input)="findByCertificateName(certificateName.value)" formControlName="certificateName" placeholder="certificate name">
+    <input type="text" #certificateName (input)="findByCertificateName(certificateName.value)"
+           formControlName="certificateName" placeholder="certificate name">
+    <form>
+      <label for="tags" id="tagsLabel">Choose a tag:</label>
+      <select #tagName (input)="findByTagName(tagName.value)" [value]="tagName" name="tags" id="tags">
+        <option  *ngFor="let tag of certificateService.tags.tags">{{tag.tagName}}</option>
+      </select>
+    </form>
     <div id='certificates'>
       <div id="certificatesFormContent" *ngFor="let certificate of certificateService.certificates">
         <div class='inactive underlineHover2'>
@@ -18,10 +26,9 @@
         <div class='t'>{{certificate.certificateName}}</div>
         <div class='b'> Price </div>
         <div class='t'>${{certificate.price}}</div>
-        <input type="button" id="booking" (click)="putInCart(certificate.id)" value="ADD TO CART">
+        <input *ngIf="user !== undefined" type="button" id="booking" (click)="putInCart(certificate.id)" value="ADD TO CART">
       </div>
     </div>
-    <input onclick='history.back()' type="submit" class="backButton" value="BACK">
     <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
     <input type="button" class="fadeIn fourth" (click)="ngOnInit()" value="REFRESH">
     <p></p>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../login/login.service';
 
@@ -8,10 +8,13 @@ import {LoginService} from '../login/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   user: string;
   role: string;
   public userCart: number[] = [];
   cart = localStorage.getItem('userCart');
+
+  @Input() userCartLength: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router) {
@@ -25,6 +28,7 @@ export class NavbarComponent implements OnInit {
     }
     if (this.cart !== undefined && this.cart !== null) {
       this.userCart = JSON.parse(localStorage.getItem('userCart'));
+      this.userCartLength = this.userCart.length;
     }
   }
 

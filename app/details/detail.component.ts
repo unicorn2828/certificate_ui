@@ -3,6 +3,8 @@ import {DetailService} from './detail.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Certificate} from '../_model/certificate.model';
 import {UpdateService} from '../update/update.service';
+import {CertificatesService} from '../certificates/certificates.service';
+import {CertificatesComponent} from '../certificates/certificates.component';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +19,7 @@ export class DetailComponent implements OnInit {
 
   constructor(public detailsService: DetailService,
               private updateService: UpdateService,
+              public certificatesComponent: CertificatesComponent,
               private route: ActivatedRoute,
               private router: Router) {
   }

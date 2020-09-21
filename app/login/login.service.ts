@@ -13,7 +13,6 @@ const options = {
 @Injectable({providedIn: 'root'})
 export class LoginService {
   private token: Token;
-  private userCart: [];
   readonly url = 'http://localhost:8070/users/login';
 
   constructor(private http: HttpClient,
@@ -21,24 +20,11 @@ export class LoginService {
               private router: Router) {
   }
 
-  loginForm = new FormGroup({
-    login: new FormControl(),
-    password: new FormControl()
-  });
-
-  resetForm(): void {
-    this.loginForm.reset({
-      login: '',
-      password: ''
-    });
-  }
-
   getToken(login, password): Observable<Token> {
     const data = JSON.stringify({login, password});
     return this.http.post<Token>(this.url, data, options).pipe(tap(token =>
       this.token = token));
   }
-
 
   logIn(login: string, password: string): void {
     this.getToken(login, password).subscribe(data => this.setToken(data));
@@ -52,6 +38,7 @@ export class LoginService {
     localStorage.setItem('sub', token.sub);
     localStorage.setItem('exp', token.exp);
     localStorage.setItem('token', token.token);
+    localStorage.setItem('userId', token.userId);
     console.log(localStorage.getItem('token'));
     this.router.navigateByUrl('/home');
   }

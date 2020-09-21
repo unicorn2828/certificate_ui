@@ -2,17 +2,62 @@
 <div class="wrapper fadeInUp">
   <div id="loginFormContent">
     <p></p>
+    <div id="error"></div>
+    <p></p>
     <h3> Sign Up </h3>
-    <div class='inactive underlineHover2'>
-      <img src="assets/pahonia.png" id="loginIcon" alt="Avatar Icon"/>
-    </div>
     <form method="post" id="loginData" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <input type="text" class="fadeIn second" formControlName="login" placeholder="login">
+      <div *ngIf="!name.invalid" class="alert">Login looks good</div>
+      <div *ngIf="name.value === null || name.value === ''" class="info">Login must be at least 5 characters long</div>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          Login is required
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Login must be at least 5 characters long
+        </div>
+      </div>
       <input type="text" class="fadeIn third" formControlName="password" placeholder="password">
+      <div *ngIf="!name2.invalid" class="alert">Password looks good</div>
+      <div *ngIf="name2.value === null || name2.value === ''" class="info">Password must be at least 5 characters long</div>
+      <div *ngIf="name2.invalid && (name2.dirty || name2.touched)"
+           class="alert alert-danger">
+        <div *ngIf="name2.errors.required">
+          Password is required
+        </div>
+        <div *ngIf="name2.errors.minlength">
+          Password must be at least 5 characters long
+        </div>
+      </div>
       <input type="text" class="fadeIn second" formControlName="confirmPassword" placeholder="confirm password">
+      <div *ngIf="!name3.invalid" class="alert">Confirm-password looks good</div>
+      <div *ngIf="name3.value === null || name3.value === ''" class="info">Confirm-password must be at least 5 characters long</div>
+      <div *ngIf="name3.invalid && (name3.dirty || name3.touched)"
+           class="alert alert-danger">
+        <div *ngIf="name3.errors.required">
+          Confirm-password is required
+        </div>
+        <div *ngIf="name3.errors.minlength">
+          Confirm-password must be at least 5 characters long
+        </div>
+      </div>
       <input type="text" class="fadeIn third" formControlName="email" placeholder="email">
-      <input type="submit" class="fadeIn fourth" value="SUBMIT">
-      <input type="button" class="fadeIn fourth" (click) = "resetForm()" value="RESET">
+      <div *ngIf="!name4.invalid" class="alert">Email looks good</div>
+      <div *ngIf="name4.value === null || name4.value === ''" class="info">Email must contain @ symbol</div>
+      <div *ngIf="name4.invalid && (name4.dirty || name4.touched)"
+           class="alert alert-danger">
+        <div *ngIf="name4.errors.required">
+          Email is required
+        </div>
+        <div *ngIf="name4.errors.email">
+          Email must contain @ symbol
+        </div>
+      </div>
+      <input type="submit" class="fadeIn fourth" value="SUBMIT"
+             [class.grayColor]="name.invalid || name2.invalid || name3.invalid || name4.invalid"
+             [disabled]="name.invalid || name2.invalid || name3.invalid || name4.invalid">
+      <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
     </form>
     <input onclick='history.back()' type="submit" class="fadeIn fifth" value="BACK">
   </div>

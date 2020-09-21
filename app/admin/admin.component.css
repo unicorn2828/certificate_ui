@@ -1,7 +1,6 @@
 /* BASIC */
 
 a {
-  color: black;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -120,18 +119,12 @@ tbody:hover {
 
 }
 
-
 #formContent2:hover {
   background: darkslategray;
   color: white;
   border: 5px solid white;
   transform: scale(1.2);
-  transition: 0.3s ease-in-out;
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  -ms-transition: all 0.6s ease-in-out;
-  -o-transition: all 0.6s ease-in-out;
-  transition: 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 #formContent3 {
@@ -407,6 +400,26 @@ input[type=text]:placeholder {
   }
 }
 
+#delete {
+  background-color: darkslategray;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: white 2px;
+  margin: 10px;
+  border-style: solid;
+  border-color: white;
+}
+#delete:hover {
+  background-color: cadetblue;
+  transition: all 0.2s ease-in-out;
+  border-style: solid;
+  border-color: white;
+}
+
+#title {
+  text-align: center;
+}
+
 .fadeIn {
   opacity: 0;
   -webkit-animation: fadeIn ease-in 1;
@@ -505,9 +518,10 @@ input[type=text]:placeholder {
 }
 
 .t:hover {
-  transform: scale(1.2);
-  transition: all 0.1s ease-in-out;
+  transform: scale(1);
+  transition: all 0s ease-in-out;
 }
+
 
 .nav-bar {
   overflow: hidden;
@@ -548,4 +562,133 @@ input[type=text]:placeholder {
   box-sizing: border-box;
 }
 
+#certificatesFormContent {
+  border: 5px solid darkslategray;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 100px 100px;
+  width: 250px;
+  max-width: 250px;
+  height: 250px;
+  max-height: 250px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: inline-block;
+  margin: 20px 20px 20px 20px;
+  color: black;
+}
 
+#certificatesFormContent:hover {
+  background: darkslategray;
+  color: white;
+  border: 5px solid white;
+
+  -moz-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+  transition: all 0.1s ease-in-out;
+
+}
+
+#certificatesFormContent:hover a{
+  background: darkslategray;
+  color: white;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+#certificatesFormContent:hover .t{
+  background: darkslategray;
+  color: white;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.grayColor {
+  background-color: gray;
+}
+.grayColor:hover{
+  background-color: gray;
+}
+
+#loginIcon {
+  width: 10%;
+  margin: 15px 5px 5px 5px;
+}
+
+#loginIcon:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+#loginFormContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 50%;
+  max-width: 50%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.alert {
+  font-size: 8px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: green;
+  margin: 5px 0px 0px 0px;
+  font-size: 70%;
+}
+
+.alert-danger {
+  font-size: 8px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: red;
+  margin: 5px 0px 0px 0px;
+  font-size: 70%;
+}
+.grayColor {
+  background-color: gray;
+}
+.grayColor:hover{
+  background-color: gray;
+}
+.info {
+  font-size: 8px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: gray;
+  margin: 5px 0px 0px 0px;
+  font-size: 70%;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+#error{
+  font-size: 10px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: red;
+  margin: 0px 0px 0px 0px;
+}
+
+.ng-invalid:not(form)  {
+  border-bottom: 2px solid red; /* red */
+}

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RegistrationService} from './registration.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../_model/user.model';
 import {LoginService} from '../login/login.service';
 
@@ -10,6 +10,7 @@ import {LoginService} from '../login/login.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  public loginForm: FormGroup;
   private login: string;
   private password: string;
   private confirmPassword: string;
@@ -20,13 +21,6 @@ export class RegistrationComponent implements OnInit {
               public loginService: LoginService,
   ) {
   }
-
-  loginForm = new FormGroup({
-    login: new FormControl(),
-    password: new FormControl(),
-    confirmPassword: new FormControl(),
-    email: new FormControl()
-  });
 
   onSubmit(): void {
     this.login = this.loginForm.get('login').value;
@@ -51,5 +45,23 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      login: new FormControl(this.login, [
+        Validators.required,
+        Validators.minLength(5)]),
+      password: new FormControl(this.password, [
+        Validators.required,
+        Validators.minLength(5)]),
+      confirmPassword: new FormControl(this.confirmPassword, [
+        Validators.required,
+        Validators.minLength(5)]),
+      email: new FormControl(this.email, [
+        Validators.required,
+        Validators.email])
+    });
   }
+  get name(): AbstractControl { return this.loginForm.get('login'); }
+  get name2(): AbstractControl { return this.loginForm.get('password'); }
+  get name3(): AbstractControl { return this.loginForm.get('confirmPassword'); }
+  get name4(): AbstractControl { return this.loginForm.get('email'); }
 }

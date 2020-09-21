@@ -1,26 +1,31 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Injectable, Input, OnInit, ViewChild} from '@angular/core';
 import {CertificatesService} from './certificates.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Certificates} from '../_model/certificate.model';
 import {MatPaginator} from '@angular/material/paginator';
-import {UserComponent} from '../user/user.component';
+import {CartComponent} from '../cart/cart.component';
+import {Tags} from '../_model/tag.model';
 
 @Component({
   selector: 'app-certificate',
   templateUrl: './certificates.component.html',
   styleUrls: ['./certificates.component.css']
 })
+@Injectable({providedIn: 'root'})
 export class CertificatesComponent implements OnInit {
   public user: string;
   public role: string;
+  public length = 100;
   public pageIndex = 1;
   public pageSize = 10;
-  private userCart: [number];
+  public userCartLength = 0;
+  public userCart: number[];
 
   constructor(public certificateService: CertificatesService,
-              public userComponent: UserComponent) {
+              public cartComponent: CartComponent) {
   }
 
+  @Input() tagName: string;
   @Input() certificateName: Certificates;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   certificatesForm = new FormGroup({
@@ -34,8 +39,14 @@ export class CertificatesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.certificateService.getCount().subscribe(data => {
+      this.length = data;
+    });
     this.certificateService.getCertificates(this.pageIndex, this.pageSize, null).subscribe(data => {
       this.certificateService.certificates = data.certificates;
+    });
+    this.certificateService.getTags().subscribe(data => {
+      this.certificateService.tags = data;
     });
     if (localStorage.getItem('sub') !== null) {
       this.user = localStorage.getItem('sub');
@@ -49,6 +60,14 @@ export class CertificatesComponent implements OnInit {
       this.certificateService.certificates = data.certificates;
     });
   }
+
+
+  findByTagName(tagName): void {
+    this.certificateService.getCertificatesByTag(tagName).subscribe(data => {
+      this.certificateService.certificates = data.certificates;
+    });
+  }
+
 
   getPaginatorData(event): void {
     if (event === null || event.pageIndex === 0) {
@@ -65,7 +84,17 @@ export class CertificatesComponent implements OnInit {
   putInCart(id: number): void {
     const userCart = localStorage.getItem('userCart');
     const empty = userCart !== undefined && userCart !== null;
-    console.log(empty);
-    this.userComponent.putInCart(id, empty);
+    this.putInCartNext(id, empty);
+  }
+
+  putInCartNext(id: number, cartStatus: boolean): void {
+    if (!cartStatus) {
+      this.userCart = new Array();
+    } else {
+      this.userCart = JSON.parse(localStorage.getItem('userCart'));
+    }
+    this.userCart.push(id);
+    localStorage.setItem('userCart', JSON.stringify(this.userCart));
+    this.userCartLength = this.userCart.length;
   }
 }

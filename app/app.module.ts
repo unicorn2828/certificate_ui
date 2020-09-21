@@ -17,7 +17,8 @@ import {DetailComponent} from './details/detail.component';
 import {HttpErrorInterceptor} from './error/http-error.interceptor';
 import {UserComponent} from './user/user.component';
 import {UpdateComponent} from './update/update.component';
-import {MatToolbar} from '@angular/material/toolbar';
+import {CartComponent} from './cart/cart.component';
+import {AdminComponent} from './admin/admin.component';
 
 const appRoutes: Routes = [
   {path: '', component: CertificatesComponent},
@@ -29,6 +30,8 @@ const appRoutes: Routes = [
   {path: 'home', component: CertificatesComponent},
   {path: 'user', component: UserComponent},
   {path: 'update/:id', component: UpdateComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'admin', component: AdminComponent},
   {path: '**', component: CertificatesComponent}
 ];
 
@@ -42,7 +45,9 @@ const appRoutes: Routes = [
     RegistrationComponent,
     DetailComponent,
     UserComponent,
-    UpdateComponent
+    UpdateComponent,
+    CartComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

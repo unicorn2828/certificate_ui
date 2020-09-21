@@ -15,7 +15,9 @@ error: CustomError;
         } else {
           errorMessage = `Error Code: ${this.error.errorCode}\nMessage: ${this.error.errorMessage}`;
         }
-        window.alert(this.error.errorMessage);
+        //window.alert(this.error.errorMessage);
+        const element = window.document.getElementById('error');
+        element.innerHTML = this.error.errorMessage;
         return throwError(errorMessage);
       })
     );

@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<br><br>
+<div class='details'>
+  <div class='wrapper fadeInUp'>
+    <div id='formContent2'>
+      <p></p>
+      <div class='inactive underlineHover2'>
+        <h3>User info</h3>
+
+        <p></p>
+      </div>
+      <p></p>
+      <form method="post" id="loginData" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="id" placeholder="user ID">
+        <div *ngIf="!id.invalid" class="alert">user id looks good</div>
+        <div *ngIf="id.invalid && (id.dirty || id.touched)"
+             class="alert alert-danger">
+          <div class="alert" id="error"></div>
+        </div>
+        <div class='b'>User name</div>
+        <div class='t'>{{user.login}}</div>
+        <div class='b'>Email</div>
+        <div class='t'>{{user.email}}</div>
+        <div class='b'>Widely tag</div>
+        <div class='t' *ngFor="let tag of tags">
+          <div class='t'>{{tag.tagName}}</div>
+        </div>
+        <div class='b'>User orders</div>
+        <div class='t' *ngFor="let order of orders.orders">{{order.id}}</div>
+        <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
+        <input type="submit" class="fadeIn fourth" value="FIND">
+        <input onclick='history.back()' type='submit' class='fadeIn fifth' value='BACK'>
+      </form>
+      <p></p>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 export interface Token {
+  userId: string;
   sub: string;
   exp: string;
   type: string;

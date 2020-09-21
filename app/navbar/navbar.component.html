@@ -6,14 +6,13 @@
     </button>
     <div class='dropdown-content'>
       <a href='/certificates'>Certificates</a>
-      <a *ngIf="role === 'ROLE_ADMIN'" href='#'>Add certificate</a>
-      <a *ngIf="role === 'ROLE_ADMIN'" href='#'>Add tag</a>
+      <a *ngIf="role === 'ROLE_ADMIN'" href='/admin'>User info</a>
     </div>
   </div>
 
   <div id='rs' class='right-side'>
-    <a *ngIf="user !== undefined" href='/user'>SHOPPING CART: {{userCart.length}}</a>
-    <span *ngIf="user !== undefined" href='/user'>{{user}}</span>
+    <a *ngIf="user !== undefined" href='/cart'>SHOPPING CART: {{userCartLength}}</a>
+    <a *ngIf="user !== undefined" href='/user'>{{user}}</a>
     <a *ngIf="user === undefined" href='/login'>SIGN IN</a>
     <a *ngIf="user === undefined" href='/registration'>SIGN UP</a>
     <a *ngIf="user !== undefined" (click)="logout()" href='/home'>LOG OUT</a>

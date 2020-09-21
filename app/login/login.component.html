@@ -4,11 +4,13 @@
 <div class="wrapper fadeInUp">
   <div id="loginFormContent">
     <p></p>
+    <div id="error"></div>
+    <p></p>
     <h3> Sign In </h3>
     <form method="post" id="loginData" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <input type="text" id="login" class="fadeIn second" formControlName="login" placeholder="login">
       <div *ngIf="!name.invalid" class="alert">Login looks good</div>
-      <div *ngIf="name.value === null" class="info">Login must be at least 5 characters long</div>
+      <div *ngIf="name.value === null || name.value === ''" class="info">Login must be at least 5 characters long</div>
       <div *ngIf="name.invalid && (name.dirty || name.touched)"
            class="alert alert-danger">
         <div *ngIf="name.errors.required">
@@ -20,7 +22,7 @@
       </div>
       <input type="text" id="password" class="fadeIn third" formControlName="password" placeholder="password">
       <div *ngIf="!name2.invalid" class="alert">Password looks good</div>
-      <div *ngIf="name2.value === null" class="info">Password must be at least 5 characters long</div>
+      <div *ngIf="name2.value === null || name2.value === ''" class="info">Password must be at least 5 characters long</div>
       <div *ngIf="name2.invalid && (name2.dirty || name2.touched)"
            class="alert alert-danger">
         <div *ngIf="name2.errors.required">
@@ -30,7 +32,8 @@
           Password must be at least 5 characters long
         </div>
       </div>
-      <input type="submit" class="fadeIn fourth" value="SUBMIT" [class.grayColor]="name.invalid || name2.invalid"
+      <input type="submit" class="fadeIn fourth" value="SUBMIT"
+             [class.grayColor]="name.invalid || name2.invalid"
              [disabled]="name.invalid || name2.invalid">
       <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
     </form>

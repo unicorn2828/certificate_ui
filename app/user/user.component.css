@@ -1,7 +1,6 @@
 /* BASIC */
 
 a {
-  color: black;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -519,9 +518,10 @@ input[type=text]:placeholder {
 }
 
 .t:hover {
-  transform: scale(1.2);
-  transition: all 0.1s ease-in-out;
+  transform: scale(1);
+  transition: all 0s ease-in-out;
 }
+
 
 .nav-bar {
   overflow: hidden;
@@ -568,10 +568,10 @@ input[type=text]:placeholder {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 100px 100px;
-  width: 200px;
-  max-width: 200px;
-  height: 200px;
-  max-height: 200px;
+  width: 250px;
+  max-width: 250px;
+  height: 250px;
+  max-height: 250px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
@@ -593,4 +593,31 @@ input[type=text]:placeholder {
   -ms-transform: scale(1.15);
   transform: scale(1.15);
   transition: all 0.1s ease-in-out;
+
+}
+
+#certificatesFormContent:hover a{
+  background: darkslategray;
+  color: white;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+#certificatesFormContent:hover .t{
+  background: darkslategray;
+  color: white;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.grayColor {
+  background-color: gray;
+}
+.grayColor:hover{
+  background-color: gray;
 }

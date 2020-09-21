@@ -10,8 +10,8 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 @Injectable({providedIn: 'root'})
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-  password: string;
-  login: string;
+  private password: string;
+  private login: string;
 
   constructor(public loginService: LoginService) {
   }
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
   get name(): AbstractControl { return this.loginForm.get('login'); }
   get name2(): AbstractControl { return this.loginForm.get('password'); }
+
   resetForm(): void {
     this.loginForm.reset({
       login: '',
