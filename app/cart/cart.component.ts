@@ -1,10 +1,9 @@
-import {Component, Injectable, Input, OnInit} from '@angular/core';
+import {CertificatesService} from '../certificates/certificates.service';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DetailService} from '../details/detail.service';
-import {Certificate, Certificates} from '../_model/certificate.model';
-import {CertificatesService} from '../certificates/certificates.service';
+import {Certificate} from '../_model/certificate.model';
 import {Booking} from '../_model/order.model';
-import {CertificatesComponent} from '../certificates/certificates.component';
 
 @Component({
   selector: 'app-cart',
@@ -13,21 +12,21 @@ import {CertificatesComponent} from '../certificates/certificates.component';
 })
 @Injectable({providedIn: 'root'})
 export class CartComponent implements OnInit {
-  public certificate: Certificate;
   public certificates: Certificate[] = [];
-  public user: string;
-  public role: string;
+  public certificate: Certificate;
   public userCart: number[];
   public booking: Booking;
   public userCartLength;
+  public user: string;
+  public role: string;
 
-  constructor(private detailService: DetailService,
-              private certificatesService: CertificatesService,
+  constructor(private certificatesService: CertificatesService,
+              private detailService: DetailService,
               private route: ActivatedRoute,
               private router: Router) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.userCart = JSON.parse(localStorage.getItem('userCart'));
     if (localStorage.getItem('sub') !== null) {
       this.user = localStorage.getItem('sub');
@@ -36,22 +35,15 @@ export class CartComponent implements OnInit {
           this.detailService.getCertificate(id).subscribe(data => this.certificates.push(data));
         }
       }
-      console.log(this.userCart === null || this.userCart.length === 0);
+      if (localStorage.getItem('userCart') === null) {
+        this.userCartLength = 0;
+      } else {
+        this.userCartLength = Number(localStorage.getItem('userCart'));
+      }
     }
   }
 
-  putInCart(id: number, cartStatus: boolean): void {
-    if (!cartStatus) {
-      this.userCart = new Array();
-    } else {
-      this.userCart = JSON.parse(localStorage.getItem('userCart'));
-    }
-    this.userCart.push(id);
-    localStorage.setItem('userCart', JSON.stringify(this.userCart));
-    this.userCartLength = this.userCart.length;
-  }
-
-  delete(id: number): void {
+  public delete(id: number): void {
     let index;
     if (this.userCart.length !== 0) {
       this.userCart.forEach((value, i) => {
@@ -71,14 +63,14 @@ export class CartComponent implements OnInit {
       });
   }
 
-  confirm(): void {
-    console.log(this.certificates);
+  public confirm(): void {
     const idList: string[] = [];
     for (const cer of this.certificates) {
       idList.push(String(cer.id));
     }
+    localStorage.removeItem('userCart');
     this.certificatesService.makeOrder(idList).subscribe(data => {
-      this.ngOnInit();
+      this.router.navigateByUrl('/order-info');
     });
   }
 }

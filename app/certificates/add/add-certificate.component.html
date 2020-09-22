@@ -1,0 +1,18 @@
+<app-navbar [userCartLength] = "userCartLength"></app-navbar>
+<div class="wrapper fadeInUp">
+  <div id="loginFormContent">
+    <div class="alert" id="error"></div>
+    <p></p>
+    <h3> Add certificate </h3>
+    <form method="post" id="loginData" [formGroup]="addForm" (ngSubmit)="addCertificate()">
+      <input type="text" class="fadeIn second" formControlName="certificateName" placeholder="certificate name">
+      <input type="text" class="fadeIn third" formControlName="description" placeholder="description">
+      <input type="text" class="fadeIn third" formControlName="price" placeholder="price">
+      <input type="text" class="fadeIn third" formControlName="duration" placeholder="duration">
+      <input type="text" class="fadeIn third" formControlName="tag" placeholder="tag name">
+      <input type="submit" class="fadeIn fourth" value="ADD">
+      <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
+    </form>
+    <input onclick='history.back()' type="submit" class="fadeIn fifth" value="BACK">
+  </div>
+</div>

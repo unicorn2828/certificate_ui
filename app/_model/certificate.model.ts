@@ -1,3 +1,5 @@
+import {Tag} from './tag.model';
+
 export interface Certificate {
   id: number;
   certificateName: string;
@@ -6,17 +8,9 @@ export interface Certificate {
   creationDate?: any;
   modificationDate?: any;
   duration: number;
+  tags: Tag[];
 }
 
 export interface Certificates {
   certificates: [];
-}
-
-export interface UpdatedCertificate {
-  certificateName: string;
-  description: string;
-  price: number;
-  creationDate: string;
-  duration: number;
-  tags: [];
 }

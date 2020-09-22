@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {JWT, Token} from '../_model/jwt.model';
-import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 const options = {
@@ -20,17 +19,17 @@ export class LoginService {
               private router: Router) {
   }
 
-  getToken(login, password): Observable<Token> {
+  public getToken(login, password): Observable<Token> {
     const data = JSON.stringify({login, password});
     return this.http.post<Token>(this.url, data, options).pipe(tap(token =>
       this.token = token));
   }
 
-  logIn(login: string, password: string): void {
+  public logIn(login: string, password: string): void {
     this.getToken(login, password).subscribe(data => this.setToken(data));
   }
 
-  setToken(token: Token): void {
+  public setToken(token: Token): void {
     const jwtData = token.token.split('.')[1];
     const decodedJwtJsonData = window.atob(jwtData);
     const jwt: JWT = JSON.parse(decodedJwtJsonData);

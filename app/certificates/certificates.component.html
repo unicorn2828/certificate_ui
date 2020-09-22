@@ -1,18 +1,13 @@
-<app-navbar [userCartLength] = "userCartLength"></app-navbar>
+<app-navbar [userCartLength]="userCartLength"></app-navbar>
 <div class="wrapper fadeInUp">
   <div id="error"></div>
   <div id="formContent" [formGroup]="certificatesForm">
-    <mat-paginator [length]="length"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="[5, 10, 25, 50]"
-                   (page)="getPaginatorData($event)">
-    </mat-paginator>
     <input type="text" #certificateName (input)="findByCertificateName(certificateName.value)"
-           formControlName="certificateName" placeholder="certificate name">
+           formControlName="certificateName" placeholder="CERTIFICATE NAME">
     <form>
       <label for="tags" id="tagsLabel">Choose a tag:</label>
       <select #tagName (input)="findByTagName(tagName.value)" [value]="tagName" name="tags" id="tags">
-        <option  *ngFor="let tag of certificateService.tags.tags">{{tag.tagName}}</option>
+        <option *ngFor="let tag of certificateService.tags.tags">{{tag.tagName}}</option>
       </select>
     </form>
     <div id='certificates'>
@@ -22,16 +17,23 @@
             <img src='assets/gift-box.png' id='giftIcon' alt='Gift Icon'>
           </a>
         </div>
-        <div class='b'> Certificate Name </div>
+        <div class='b'> Certificate name</div>
         <div class='t'>{{certificate.certificateName}}</div>
-        <div class='b'> Price </div>
+        <div class='b'> Price</div>
         <div class='t'>${{certificate.price}}</div>
-        <input *ngIf="user !== undefined" type="button" id="booking" (click)="putInCart(certificate.id)" value="ADD TO CART">
+        <input *ngIf="user !== undefined" type="button" id="booking" (click)="putInCart(certificate.id)"
+               value="ADD TO CART">
       </div>
     </div>
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="[5, 10, 25, 50]"
+                   [showFirstLastButtons]="userCartLength"
+                   (page)="getPaginatorData($event)"
+                   class="mat-paginator">
+    </mat-paginator>
     <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
     <input type="button" class="fadeIn fourth" (click)="ngOnInit()" value="REFRESH">
     <p></p>
   </div>
 </div>
-

@@ -109,8 +109,8 @@ tbody:hover {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 50%;
-  max-width: 50%;
+  width: 60%;
+  max-width: 60%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
@@ -123,54 +123,8 @@ tbody:hover {
   background: darkslategray;
   color: white;
   border: 5px solid white;
-  transform: scale(1.2);
+  transform: scale(1);
   transition: all 0.5s ease-in-out;
-}
-
-#formContent3 {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-#formContent5 {
-  border: 5px solid #5fbae9;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 100px 100px;
-  width: 200px;
-  max-width: 200px;
-  height: 200px;
-  max-height: 200px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
-  display: inline-block;
-  margin: 20px 20px 20px 20px;
-  color: black;
-}
-
-#formContent5:hover {
-  background: darkslategray;
-  color: white;
-  border: 5px solid white;
-  -moz-transform: scale(1.15);
-  -webkit-transform: scale(1.15);
-  -o-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
-  transition: all 0.1s ease-in-out;
 }
 
 #right-side .cn1 {
@@ -218,33 +172,6 @@ h2.active {
 
 
 /* FORM TYPOGRAPHY*/
-
-input[type=button], input[type=submit], input[type=reset] {
-  background-color: #56baed;
-  border: none;
-  color: white;
-  padding: 15px 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  margin: 20px 5px 20px 5px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-  background-color: cornflowerblue;
-}
-
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
@@ -272,11 +199,6 @@ input[type=text] {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-}
-
-input[type=text]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
 }
 
 input[type=text]:placeholder {
@@ -409,6 +331,7 @@ input[type=text]:placeholder {
   border-style: solid;
   border-color: white;
 }
+
 #delete:hover {
   background-color: cadetblue;
   transition: all 0.2s ease-in-out;
@@ -596,16 +519,7 @@ input[type=text]:placeholder {
 
 }
 
-#certificatesFormContent:hover a{
-  background: darkslategray;
-  color: white;
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  -ms-transition: all 0.6s ease-in-out;
-  -o-transition: all 0.6s ease-in-out;
-  transition: all 0.6s ease-in-out;
-}
-#certificatesFormContent:hover .t{
+#certificatesFormContent:hover a {
   background: darkslategray;
   color: white;
   -webkit-transition: all 0.6s ease-in-out;
@@ -615,11 +529,14 @@ input[type=text]:placeholder {
   transition: all 0.6s ease-in-out;
 }
 
-.grayColor {
-  background-color: gray;
-}
-.grayColor:hover{
-  background-color: gray;
+#certificatesFormContent:hover .t {
+  background: darkslategray;
+  color: white;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 #loginIcon {
@@ -663,12 +580,7 @@ input[type=text]:placeholder {
   margin: 5px 0px 0px 0px;
   font-size: 70%;
 }
-.grayColor {
-  background-color: gray;
-}
-.grayColor:hover{
-  background-color: gray;
-}
+
 .info {
   font-size: 8px;
   font-family: "Poppins", sans-serif;
@@ -678,17 +590,36 @@ input[type=text]:placeholder {
   font-size: 70%;
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required], .ng-valid.required {
   border-left: 5px solid #42A948; /* green */
 }
-#error{
-  font-size: 10px;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  color: red;
-  margin: 0px 0px 0px 0px;
+
+.ng-invalid:not(form) {
+  border-bottom: 2px solid #5fbae9; /* red */
 }
 
-.ng-invalid:not(form)  {
-  border-bottom: 2px solid red; /* red */
+input.ng-valid[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 3px solid #5fbae9;
+}
+
+input.ng-invalid[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 3px solid red;
+}
+
+#error {
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.grayColor {
+  background-color: gray;
+}
+
+.grayColor:hover {
+  background-color: gray;
 }

@@ -1,47 +1,47 @@
-<div class='certificatesPage'>
-  <app-navbar></app-navbar>
-  <br><br>
-  <div class='details'>
-    <div class='wrapper fadeInUp'>
-      <div id='formContent2'>
-        <p></p>
-        <div class='inactive underlineHover2'>
-        <h3>Certificate Detailed Description</h3>
-          <p></p>
-        </div>
-        <p></p>
-        <div id='certificateDetailedDescription'>
-          <div>
-            <h4 class='b'>Certificate Name:</h4> {{detailsService.certificate.certificateName}}
-          </div>
-          <div>
-            <h4 class='b'>Price:</h4> ${{detailsService.certificate.price}}
-          </div>
-          <div>
-            <h4 class='b'>Duration:</h4> {{detailsService.certificate.duration}}
-          </div>
-          <div>
-            <h4 class='b'>Creation date:</h4> {{detailsService.certificate.creationDate}}
-          </div>
-          <div>
-            <h4 class='b'>Modification date:</h4> {{detailsService.certificate.modificationDate}}
-          </div>
-          <div>
-            <h4 class='b'>Description:</h4> {{detailsService.certificate.description}}
-          </div>
-        </div>
-        <p></p>
-        <a *ngIf="user !== undefined"  (click)="certificatesComponent.putInCart(certificate.id)" href='#'>
-          <div>Add to Cart</div>
-          <img src='assets/cart.svg' id='cartIcon' alt='Cart Icon'/>
-        </a>
-        <p></p>
-        <input *ngIf="role === 'ROLE_ADMIN'" type="button" class="fadeIn fifth" (click) = "delete()" value="DELETE">
-        <input *ngIf="role === 'ROLE_ADMIN'" type="button" class="fadeIn fifth" (click) = "update()" value="UPDATE">
-        <input onclick='history.back()' type='submit' class='fadeIn fifth' value='BACK'>
+<app-navbar [userCartLength]="userCartLength"></app-navbar>
+<br><br>
+<div class='details'>
+  <div class='wrapper fadeInUp'>
+    <div id='formContent2'>
+      <p></p>
+      <div class='inactive underlineHover2'>
+        <h3>Certificate detailed description</h3>
         <p></p>
       </div>
+      <p></p>
+      <div id='certificateDetailedDescription'>
+        <div>
+          <h4 class='b'>Certificate name:</h4> {{detailsService.certificate.certificateName}}
+        </div>
+        <div>
+          <h4 class='b'>Price:</h4> ${{detailsService.certificate.price}}
+        </div>
+        <div>
+          <h4 class='b'>Duration:</h4> {{detailsService.certificate.duration}}
+        </div>
+        <div>
+          <h4 class='b'>Creation date:</h4> {{detailsService.certificate.creationDate}}
+        </div>
+        <div>
+          <h4 class='b'>Modification date:</h4> {{detailsService.certificate.modificationDate}}
+        </div>
+        <div>
+          <h4 class='b'>Description:</h4> {{detailsService.certificate.description}}
+        </div>
+        <div *ngFor="let tag of detailsService.certificate.tags">
+          <h4 class='b'>Tag:</h4> {{tag.tagName}}
+        </div>
+      </div>
+      <p></p>
+      <a *ngIf="user !== undefined" (click)="putInCart(certificate.id)">
+        <div>Add to Cart</div>
+        <img src='assets/cart.svg' id='cartIcon' alt='Cart Icon'/>
+      </a>
+      <p></p>
+      <input *ngIf="role === 'ROLE_ADMIN'" type="button" class="fadeIn fifth" (click)="delete()" value="DELETE">
+      <input *ngIf="role === 'ROLE_ADMIN'" type="button" class="fadeIn fifth" (click)="update()" value="UPDATE">
+      <input onclick='history.back()' type='submit' class='fadeIn fifth' value='BACK'>
+      <p></p>
     </div>
   </div>
 </div>
-

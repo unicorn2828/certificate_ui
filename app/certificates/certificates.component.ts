@@ -1,10 +1,8 @@
 import {Component, Injectable, Input, OnInit, ViewChild} from '@angular/core';
 import {CertificatesService} from './certificates.service';
-import {FormControl, FormGroup} from '@angular/forms';
 import {Certificates} from '../_model/certificate.model';
 import {MatPaginator} from '@angular/material/paginator';
-import {CartComponent} from '../cart/cart.component';
-import {Tags} from '../_model/tag.model';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-certificate',
@@ -21,8 +19,7 @@ export class CertificatesComponent implements OnInit {
   public userCartLength = 0;
   public userCart: number[];
 
-  constructor(public certificateService: CertificatesService,
-              public cartComponent: CartComponent) {
+  constructor(public certificateService: CertificatesService) {
   }
 
   @Input() tagName: string;
@@ -32,13 +29,13 @@ export class CertificatesComponent implements OnInit {
     certificateName: new FormControl()
   });
 
-  resetForm(): void {
+  public resetForm(): void {
     this.certificatesForm.reset({
       certificateName: ''
     });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.certificateService.getCount().subscribe(data => {
       this.length = data;
     });
@@ -55,21 +52,19 @@ export class CertificatesComponent implements OnInit {
     this.getPaginatorData(null);
   }
 
-  findByCertificateName(certificateName): void {
+  public findByCertificateName(certificateName): void {
     this.certificateService.getCertificates(this.pageIndex, this.pageSize, certificateName).subscribe(data => {
       this.certificateService.certificates = data.certificates;
     });
   }
 
-
-  findByTagName(tagName): void {
+  public findByTagName(tagName): void {
     this.certificateService.getCertificatesByTag(tagName).subscribe(data => {
       this.certificateService.certificates = data.certificates;
     });
   }
 
-
-  getPaginatorData(event): void {
+  public getPaginatorData(event): void {
     if (event === null || event.pageIndex === 0) {
       this.pageIndex = 1;
     } else {
@@ -81,13 +76,13 @@ export class CertificatesComponent implements OnInit {
     });
   }
 
-  putInCart(id: number): void {
+  public putInCart(id: number): void {
     const userCart = localStorage.getItem('userCart');
     const empty = userCart !== undefined && userCart !== null;
     this.putInCartNext(id, empty);
   }
 
-  putInCartNext(id: number, cartStatus: boolean): void {
+  public  putInCartNext(id: number, cartStatus: boolean): void {
     if (!cartStatus) {
       this.userCart = new Array();
     } else {

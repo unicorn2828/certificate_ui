@@ -1,7 +1,7 @@
-export interface Tag {
+export class Tag {
   tagName: string;
 }
 
-export interface Tags {
-  tags: Tag[];
+export class Tags {
+  tags: Tag[] = new Array();
 }

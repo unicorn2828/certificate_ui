@@ -5,11 +5,12 @@ import {Order, Orders} from '../_model/order.model';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
 @Injectable({providedIn: 'root'})
-export class UserComponent implements OnInit {
+export class OrderComponent implements OnInit {
+  public userCartLength = 0;
   public orders: Orders = undefined;
   public order: Order;
   public certificate: Certificate;
@@ -20,11 +21,17 @@ export class UserComponent implements OnInit {
   constructor(private certificatesService: CertificatesService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const id = localStorage.getItem('userId');
     this.certificatesService.getUserOrders(id).subscribe(data => {
       this.orders = data;
       console.log(this.orders.orders);
     });
+    if (localStorage.getItem('userCart') === null) {
+      this.userCartLength = 0;
+    } else {
+      console.log(localStorage.getItem('userCart'));
+      this.userCartLength = Number(localStorage.getItem('userCart'));
+    }
   }
 }

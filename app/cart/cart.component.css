@@ -110,68 +110,27 @@ tbody:hover {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 50%;
-  max-width: 50%;
+  width: 85%;
+  max-width: 85%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
-
 }
 
 #formContent2:hover {
   background: darkslategray;
   color: white;
   border: 5px solid white;
-  transform: scale(1.2);
-  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
 }
 
-#formContent3 {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+#certificateDetailedDescription {
   text-align: center;
-}
+  margin: 0px 0px 0px 40px;
 
-#formContent5 {
-  border: 5px solid #5fbae9;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 100px 100px;
-  width: 200px;
-  max-width: 200px;
-  height: 200px;
-  max-height: 200px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
-  display: inline-block;
-  margin: 20px 20px 20px 20px;
-  color: black;
-}
-
-#formContent5:hover {
-  background: darkslategray;
-  color: white;
-  border: 5px solid white;
-  -moz-transform: scale(1.15);
-  -webkit-transform: scale(1.15);
-  -o-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
-  transition: all 0.1s ease-in-out;
 }
 
 #right-side .cn1 {
@@ -196,11 +155,7 @@ tbody:hover {
   border-radius: 0 0 10px 10px;
 }
 
-#certificateDetailedDescription {
-  text-align: left;
-  margin: 0px 0px 0px 40px;
 
-}
 
 #certificateName {
   text-transform: uppercase;

@@ -32,6 +32,15 @@ a {
   font-weight: 400;
   text-transform: uppercase;
 }
+a #cc {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 40;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
 b {
   color: black;
   display: inline-block;
@@ -520,10 +529,10 @@ input[type=text]:placeholder {
 .t {
   text-transform: uppercase;
 }
-.t:hover {
-  transform: scale(1.2);
-  transition: all 0.1s ease-in-out;
-}
+/*.t:hover {*/
+/*  transform: scale(1.2);*/
+/*  transition: all 0.1s ease-in-out;*/
+/*}*/
 
 .nav-bar {
   overflow: hidden;

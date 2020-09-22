@@ -6,7 +6,7 @@
     <p></p>
     <div id="error"></div>
     <p></p>
-    <h3> Sign In </h3>
+    <h3> Sign in </h3>
     <form method="post" id="loginData" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <input type="text" id="login" class="fadeIn second" formControlName="login" placeholder="login">
       <div *ngIf="!name.invalid" class="alert">Login looks good</div>

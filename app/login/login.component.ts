@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(public loginService: LoginService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginForm = new FormGroup({
       login: new FormControl(this.login, [
         Validators.required,
@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
   get name(): AbstractControl { return this.loginForm.get('login'); }
   get name2(): AbstractControl { return this.loginForm.get('password'); }
 
-  resetForm(): void {
+  public resetForm(): void {
     this.loginForm.reset({
       login: '',
       password: ''
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.loginService.logIn(this.loginForm.get('login').value, this.loginForm.get('password').value);
   }
 }

@@ -1,0 +1,44 @@
+<app-navbar [userCartLength]="userCartLength"></app-navbar>
+<div class='details'>
+  <div class='wrapper fadeInUp'>
+    <div id='formContent2'>
+      <p></p>
+      <div class='inactive underlineHover2'>
+        <h3>User info</h3>
+        <p></p>
+      </div>
+      <p></p>
+      <form method="post" id="loginData" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="id" placeholder="user id/name">
+        <div class="alert" id="error"></div>
+        <div class='b'>User name</div>
+        <div class='t'>{{user.login}}</div>
+        <div class='b'>Email</div>
+        <div class='t'>{{user.email}}</div>
+        <div class='b'>Widely tag</div>
+        <div class='t' *ngFor="let tag of tags">
+          {{tag.tagName}}
+        </div>
+        <div class='b'>User orders</div>
+        <div style="overflow-y: scroll" id="certificatesFormContent" *ngFor="let order of orders.orders">
+          <div class='b'>Order owner name</div>
+          <div class='t'>{{order.ownerName}}</div>
+          <div class='b'>Order Price</div>
+          <div class='t'>{{order.orderPrice}}</div>
+          <div class='b'>Order creation date</div>
+          <div class='t'>{{order.creationDate}}</div>
+          <div class='b'>Certificate names</div>
+          <div class='t' *ngFor="let certificate of order.certificates">
+            <a id='tt' [routerLink]="['/certificates', certificate.id]">{{certificate.certificateName}}</a>
+          </div>
+        </div>
+        <p></p>
+        <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
+        <input type="submit" class="fadeIn fourth" value="FIND"
+               [disabled]="id.errors" [class.grayColor]="id.errors" >
+        <input onclick='history.back()' type='submit' class='fadeIn fifth' value='BACK'>
+      </form>
+      <p></p>
+    </div>
+  </div>
+</div>

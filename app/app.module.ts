@@ -1,63 +1,63 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {BrowserModule} from '@angular/platform-browser';
+import {Routes, RouterModule} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {NavbarComponent} from './navbar/navbar.component';
+import {CartComponent} from './cart/cart.component';
+import {AppRoutingModule} from './app-routing.module';
 import {LoginComponent} from './login/login.component';
+import {OrderComponent} from './order/order.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {DetailComponent} from './details/detail.component';
+import {UserInfoComponent} from './user/user-info.component';
+import {HttpErrorInterceptor} from './error/http-error.interceptor';
 import {CertificatesComponent} from './certificates/certificates.component';
 import {RegistrationComponent} from './registration/registration.component';
-import {DetailComponent} from './details/detail.component';
-import {HttpErrorInterceptor} from './error/http-error.interceptor';
-import {UserComponent} from './user/user.component';
-import {UpdateComponent} from './update/update.component';
-import {CartComponent} from './cart/cart.component';
-import {AdminComponent} from './admin/admin.component';
+import {AddCertificateComponent} from './certificates/add/add-certificate.component';
+import {UpdateCertificateComponent} from './certificates/update/update-certificate.component';
 
 const appRoutes: Routes = [
-  {path: '', component: CertificatesComponent},
+  {path: 'update-certificate/:id', component: UpdateCertificateComponent},
+  {path: 'add-certificate', component: AddCertificateComponent},
+  {path: 'registration', component: RegistrationComponent},
   {path: 'certificates', component: CertificatesComponent},
   {path: 'certificates/:id', component: DetailComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent},
   {path: 'logout', component: CertificatesComponent},
-  {path: 'home', component: CertificatesComponent},
-  {path: 'user', component: UserComponent},
-  {path: 'update/:id', component: UpdateComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: '**', component: CertificatesComponent}
+  {path: 'user-info', component: UserInfoComponent},
+  {path: 'order-info', component: OrderComponent},
+  {path: '**', component: CertificatesComponent},
+  {path: '', component: CertificatesComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    LoginComponent,
+    UpdateCertificateComponent,
+    AddCertificateComponent,
     CertificatesComponent,
     RegistrationComponent,
+    UserInfoComponent,
     DetailComponent,
-    UserComponent,
-    UpdateComponent,
+    NavbarComponent,
+    OrderComponent,
+    LoginComponent,
     CartComponent,
-    AdminComponent
+    AppComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
-    FormsModule,
-    ReactiveFormsModule,
     MatPaginatorModule,
-    BrowserAnimationsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

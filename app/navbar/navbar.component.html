@@ -1,20 +1,16 @@
-<div class='navbar'>
-  <a href='/home'>MAIN PAGE</a>
-  <div class='dropdown'>
-    <button class='dropbtn'>ALL CATEGORIES
-      <i class='fa fa-caret-down'></i>
-    </button>
-    <div class='dropdown-content'>
-      <a href='/certificates'>Certificates</a>
-      <a *ngIf="role === 'ROLE_ADMIN'" href='/admin'>User info</a>
-    </div>
+<div class="header">
+  <a class="active" href='/certificates'>Home</a>
+  <div *ngIf="role === 'ROLE_ADMIN'">
+    <a href="/add-certificate">Add certificate</a>
+    <a href="/user-info">User info</a>
   </div>
-
-  <div id='rs' class='right-side'>
-    <a *ngIf="user !== undefined" href='/cart'>SHOPPING CART: {{userCartLength}}</a>
-    <a *ngIf="user !== undefined" href='/user'>{{user}}</a>
-    <a *ngIf="user === undefined" href='/login'>SIGN IN</a>
-    <a *ngIf="user === undefined" href='/registration'>SIGN UP</a>
-    <a *ngIf="user !== undefined" (click)="logout()" href='/home'>LOG OUT</a>
+  <div class="header-right">
+    <a *ngIf="user !== undefined" href='/cart' class="logo">
+      {{userCartLength}}<img src='assets/shopping-cart.svg' id='cc' alt='Cart Icon'/>
+    </a>
+    <a *ngIf="user !== undefined" href='/order-info'>{{user}}</a>
+    <a *ngIf="user === undefined" href='/login'>Sign in</a>
+    <a *ngIf="user === undefined" href='/registration'>Sign up</a>
+    <a *ngIf="user !== undefined" (click)="logout()" href='/home'>Log out</a>
   </div>
 </div>

@@ -21,7 +21,7 @@ export class CertificatesService {
   constructor(private http: HttpClient) {
   }
 
-  getCertificates(pageNumber: number, pageSize: number, certificateName: string): Observable<Certificates> {
+  public getCertificates(pageNumber: number, pageSize: number, certificateName: string): Observable<Certificates> {
     const url = 'http://localhost:8070/certificates';
     let params;
     if (certificateName === null) {
@@ -38,7 +38,7 @@ export class CertificatesService {
       .pipe(tap(data => this.certificates = data.certificates));
   }
 
-  getCertificatesByTag(tagName: string): Observable<Certificates> {
+  public getCertificatesByTag(tagName: string): Observable<Certificates> {
     const url = 'http://localhost:8070/certificates';
     const params = new HttpParams()
       .set('pageNumber', '1')
@@ -68,7 +68,7 @@ export class CertificatesService {
     return this.http.post<Order>(url, data, options).pipe(tap(order => this.order = order));
   }
 
-  getTags(): Observable<Tags> {
+  public getTags(): Observable<Tags> {
     const url = 'http://localhost:8070/tags';
     const params = new HttpParams()
       .set('pageNumber', '1')

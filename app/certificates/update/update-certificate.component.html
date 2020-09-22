@@ -1,30 +1,35 @@
-<app-navbar></app-navbar>
+<app-navbar [userCartLength] = "userCartLength"></app-navbar>
 <div class="wrapper fadeInUp">
   <div id="loginFormContent">
+    <div class="alert" id="error"></div>
     <p></p>
-    <h3> Certificate Update </h3>
+    <h3> Certificate update </h3>
     <form method="post" id="loginData" [formGroup]="updateForm" (ngSubmit)="updateCertificate()">
       <div>
-        <div class="text">certificate name</div>
+        <div class="text">Certificate name</div>
       </div>
       <input type="text" class="fadeIn second" formControlName="certificateName" placeholder="certificate name">
       <div>
-        <div class="text">description</div>
+        <div class="text">Description</div>
       </div>
       <input type="text" class="fadeIn third" formControlName="description" placeholder="description">
       <div>
-        <div class="text">creation date</div>
+        <div class="text">Creation date</div>
       </div>
       <input type="text" class="fadeIn second" formControlName="creationDate" placeholder="creation date">
       <div>
-        <div class="text">price</div>
+        <div class="text">Price</div>
       </div>
       <input type="text" class="fadeIn third" formControlName="price" placeholder="price">
       <div>
-        <div class="text">duration</div>
+        <div class="text">Duration</div>
       </div>
       <input type="text" class="fadeIn third" formControlName="duration" placeholder="duration">
-      <input type="submit" class="fadeIn fourth" (click)="updateCertificate()" value="UPDATE">
+      <div>
+        <div class="text">Tag</div>
+      </div>
+      <input type="text" class="fadeIn third" formControlName="tag" placeholder="tag">
+      <input type="submit" class="fadeIn fourth" value="UPDATE">
       <input type="button" class="fadeIn fourth" (click)="resetForm()" value="RESET">
     </form>
     <input onclick='history.back()' type="submit" class="fadeIn fifth" value="BACK">

@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
   ) {
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.login = this.loginForm.get('login').value;
     this.password = this.loginForm.get('password').value;
     this.confirmPassword = this.loginForm.get('confirmPassword').value;
@@ -35,7 +35,7 @@ export class RegistrationComponent implements OnInit {
     }, 1500);
   }
 
-  resetForm(): void {
+  public resetForm(): void {
     this.loginForm.reset({
       login: '',
       password: '',
@@ -44,7 +44,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginForm = new FormGroup({
       login: new FormControl(this.login, [
         Validators.required,

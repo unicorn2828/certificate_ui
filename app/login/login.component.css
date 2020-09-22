@@ -61,3 +61,17 @@
 .ng-invalid:not(form)  {
   border-bottom: 2px solid red; /* red */
 }
+
+input.ng-invalid {
+  color: red
+}
+
+input.ng-valid[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input.ng-invalid[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid red;
+}

@@ -4,7 +4,7 @@ import {retry, catchError} from 'rxjs/operators';
 import {CustomError} from '../_model/error.model';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
-error: CustomError;
+public error: CustomError;
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<HttpErrorResponse>> {
     return next.handle(request).pipe(retry(1),
       catchError((error: HttpErrorResponse) => {
@@ -15,7 +15,6 @@ error: CustomError;
         } else {
           errorMessage = `Error Code: ${this.error.errorCode}\nMessage: ${this.error.errorMessage}`;
         }
-        //window.alert(this.error.errorMessage);
         const element = window.document.getElementById('error');
         element.innerHTML = this.error.errorMessage;
         return throwError(errorMessage);

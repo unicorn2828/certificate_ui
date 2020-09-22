@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginService} from '../login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +7,10 @@ import {LoginService} from '../login/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  user: string;
-  role: string;
+  public user: string;
+  public role: string;
   public userCart: number[] = [];
-  cart = localStorage.getItem('userCart');
+  public cart = localStorage.getItem('userCart');
 
   @Input() userCartLength: number;
 
@@ -20,7 +18,7 @@ export class NavbarComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.checkTokenExpiration();
     if (localStorage.getItem('sub') !== null) {
       this.user = localStorage.getItem('sub');
@@ -32,14 +30,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  logout(): void {
+  public logout(): void {
     localStorage.clear();
     this.user = undefined;
     this.role = undefined;
     this.router.navigateByUrl('/home');
   }
 
-  checkTokenExpiration(): boolean {
+  public checkTokenExpiration(): boolean {
     const exp = localStorage.getItem('exp');
     if (Number(exp) < Date.now() / 1000) {
       localStorage.clear();

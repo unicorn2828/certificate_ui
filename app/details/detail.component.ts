@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DetailService} from './detail.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Certificate} from '../_model/certificate.model';
-import {UpdateService} from '../update/update.service';
-import {CertificatesService} from '../certificates/certificates.service';
-import {CertificatesComponent} from '../certificates/certificates.component';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {UpdateCertificateService} from '../certificates/update/update-certificate.service';
 
 @Component({
   selector: 'app-details',
@@ -12,19 +10,20 @@ import {CertificatesComponent} from '../certificates/certificates.component';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  public userCartLength = 0;
   public certificateId: number;
   public certificate: Certificate;
   public user: string;
   public role: string;
+  public userCart: number[];
 
   constructor(public detailsService: DetailService,
-              private updateService: UpdateService,
-              public certificatesComponent: CertificatesComponent,
+              private updateService: UpdateCertificateService,
               private route: ActivatedRoute,
               private router: Router) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -42,16 +41,33 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  update(): void {
-    const url = '/update';
+  public update(): void {
+    const url = '/update-certificate';
     this.router.navigate([url, this.certificateId]);
   }
 
-  delete(): void {
+  public delete(): void {
     this.updateService.deleteCertificate(this.certificateId).subscribe((response) => {
       console.log('deleted'); });
     setTimeout(() => {
       this.router.navigateByUrl('/certificates');
     }, 1000);
+  }
+
+  public putInCart(id: number): void {
+    const userCart = localStorage.getItem('userCart');
+    const empty = userCart !== undefined && userCart !== null;
+    this.putInCartNext(id, empty);
+  }
+
+  private putInCartNext(id: number, cartStatus: boolean): void {
+    if (!cartStatus) {
+      this.userCart = new Array();
+    } else {
+      this.userCart = JSON.parse(localStorage.getItem('userCart'));
+    }
+    this.userCart.push(id);
+    localStorage.setItem('userCart', JSON.stringify(this.userCart));
+    this.userCartLength = this.userCart.length;
   }
 }

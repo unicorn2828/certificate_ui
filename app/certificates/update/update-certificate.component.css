@@ -1,0 +1,35 @@
+#giftIcon {
+  width: 10%;
+  margin: 15px 5px 5px 5px;
+}
+
+#giftIcon:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+#loginFormContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 50%;
+  max-width: 50%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.text {
+  color: darkgray;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
